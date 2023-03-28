@@ -24,17 +24,7 @@ return (1);
 int print_string(va_list args)
 {
 char *str = va_arg(args, char *);
-int str_len = strlen(str);
 int len = 0;
-int width = 0;
-if (width > 0 && str_len < width)
-{
-for (int i = 0; i < width - str_len; i++)
-{
-putchar(' ');
-count++;
-}
-}
 while (*str)
 {
 if (*str < 32 || *str >= 127)
@@ -140,7 +130,6 @@ return (sizeof(void *));
 int _printf(const char *format, ...)
 {
 int num_chars = 0;
-int width = 0;
 va_list args;
 va_start(args, format);
 if (!format || (format[0] == '%' && !format[1]))
@@ -152,11 +141,6 @@ while (*format)
 if (*format == '%')
 {
 format++;
-while (*format >= '0' && *format <= '9')
-{
-width = width * 10 + (*format - '0');
-format++;
-}
 if (*format == '\0')
 {
 return (-1);
