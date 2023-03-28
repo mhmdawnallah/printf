@@ -21,7 +21,7 @@ return (1);
 *
 * Return: the number of characters printed
 */
-int print_string(va_list args, int width)
+int print_string(va_list args)
 {
 char *str = va_arg(args, char *);
 int len = 0;
@@ -153,7 +153,7 @@ num_chars++;
 }
 else if (*format == 's')
 {
-num_chars += print_string(args, width);
+num_chars += print_string(args);
 }
 else if (*format == 'c')
 {
