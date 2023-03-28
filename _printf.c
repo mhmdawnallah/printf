@@ -25,14 +25,9 @@ int print_string(va_list args, int width)
 {
 char *str = va_arg(args, char *);
 int len = 0;
-int i;
+
 while (*str)
 {
-if (len < width){
-for (i = 0; i < width - len; i++){
-putchar(' ');
-}
-}
 if (*str < 32 || *str >= 127)
 {
 putchar('\\');
@@ -142,11 +137,6 @@ if (!format || (format[0] == '%' && !format[1]))
 return (-1);
 if (format[0] == '%' && format[1] == ' ' && !format[2])
 return (-1);
-int width = 0;
-while (*format >= '0' && *format <= '9') {
-    width = width * 10 + (*format - '0');
-    ++format;
-}
 while (*format)
 {
 if (*format == '%')
