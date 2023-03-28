@@ -24,7 +24,17 @@ return (1);
 int print_string(va_list args)
 {
 char *str = va_arg(args, char *);
+int str_len = strlen(str);
 int len = 0;
+int width = 0;
+if (width > 0 && str_len < width)
+{
+for (int i = 0; i < width - str_len; i++)
+{
+putchar(' ');
+count++;
+}
+}
 while (*str)
 {
 if (*str < 32 || *str >= 127)
