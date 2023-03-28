@@ -130,6 +130,7 @@ return (sizeof(void *));
 int _printf(const char *format, ...)
 {
 int num_chars = 0;
+int width = 0;
 va_list args;
 va_start(args, format);
 if (!format || (format[0] == '%' && !format[1]))
@@ -141,6 +142,11 @@ while (*format)
 if (*format == '%')
 {
 format++;
+while (*format >= '0' && *format <= '9')
+{
+width = width * 10 + (*format - '0');
+format++;
+}
 if (*format == '\0')
 {
 return (-1);
