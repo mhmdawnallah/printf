@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "main.h"
+
 /**
  * _printf - Function to _printf
  * @format: Pointer to format
@@ -13,6 +14,7 @@ int _printf(const char *format, ...)
     int count = 0;
     char c;
     char *s;
+    int d;
     va_list args;
     va_start(args, format);
     
@@ -35,6 +37,14 @@ int _printf(const char *format, ...)
                     s = va_arg(args, char *);
                     puts(s);
                     count += strlen(s);
+                    break;
+                }
+                case 'd':
+                case 'i':
+                {
+                    d = va_arg(args, int);
+                    printf("%d", d);
+                    count++;
                     break;
                 }
                 case '%':
