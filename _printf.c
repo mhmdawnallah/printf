@@ -1,6 +1,6 @@
-#include "main.h"
 #include <stdarg.h>
 #include <stdio.h>
+#include "main.h"
 
 /**
 * print_char - prints a character
@@ -124,7 +124,6 @@ return (sizeof(void *));
 /**
 * _printf - custom printf function
 * @format: the format string
-* @...: additional arguments
 *
 * Return: the number of characters printed
 */
